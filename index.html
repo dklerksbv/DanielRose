@@ -5,22 +5,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Daniel Rose — Independent Musician since 2016 with roots in 70's folk-indie & americana">
-<title>Daniel Rose — Albums/title>
+<title>Daniel Rose — Albums</title>
+
 <style>
 :root {
   --bg: #f9e1d1;
   --text: #800b0b;
-  --muted: #f9e1d1;
+  --muted: #704343;
   --accent: #3f0505;
-  --border: #3f0505;
+  --border: #d5a99a;
+  --surface: #fff7f1;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+html { scroll-behavior: smooth; scroll-padding-top: 85px; }
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: var(--bg); color: var(--text); line-height: 1.7;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
 }
 a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
 .container { width: min(1100px, calc(100% - 40px)); margin: auto; }
 section { padding: 90px 0; }
 h1,h2,h3 { line-height: 1.15; letter-spacing: -.04em; font-weight: 550; }
@@ -29,94 +34,186 @@ h2 { font-size: clamp(2.2rem, 5vw, 3.5rem); }
 h3 { font-size: 1.3rem; }
 p { color: var(--muted); }
 .eyebrow {
-  color: var(--accent); text-transform: uppercase;
-  letter-spacing: .16em; font-size: .76rem; font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: .76rem;
+  font-weight: 700;
   margin-bottom: 18px;
 }
 header {
-  position: sticky; top: 0; z-index: 5;
-  background: rgba(248,248,245,.95); border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: rgba(249,225,209,.96);
+  border-bottom: 1px solid var(--border);
   backdrop-filter: blur(12px);
 }
-nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; }
+nav {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
 .logo { font-size: 1.2rem; font-weight: 750; }
 .logo span, h1 span { color: var(--accent); }
-.nav-links { display: flex; gap: 28px; list-style: none; font-size: .9rem; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+  font-size: .9rem;
+}
 .nav-links a:hover { color: var(--accent); }
 .menu-toggle {
-  display: none; padding: 8px 12px; background: white;
-  border: 1px solid var(--border); border-radius: 8px; cursor: pointer;
+  display: none;
+  padding: 8px 12px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
 }
 .hero { padding: 95px 0; }
-.hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 65px; align-items: center; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 65px;
+  align-items: center;
+}
 .hero-description { margin-top: 25px; max-width: 480px; font-size: 1.08rem; }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
 .btn {
-  display: inline-block; padding: 12px 21px; border-radius: 50px;
-  border: 1px solid var(--text); background: var(--text); color: white;
-  font-size: .9rem; transition: .2s;
+  display: inline-block;
+  padding: 12px 21px;
+  border-radius: 50px;
+  border: 1px solid var(--text);
+  background: var(--text);
+  color: var(--bg);
+  font-size: .9rem;
+  transition: background .2s, transform .2s;
 }
-.btn:hover { background: var(--accent); border-color: var(--accent); }
+.btn:hover { background: var(--accent); border-color: var(--accent); transform: translateY(-1px); }
 .btn-light { background: transparent; color: var(--text); border-color: var(--border); }
-.hero-image { height: 450px; border-radius: 180px 180px 20px 20px; overflow: hidden; }
+.btn-light:hover { color: var(--bg); }
+.hero-image {
+  height: 450px;
+  border-radius: 180px 180px 20px 20px;
+  overflow: hidden;
+  background: #e8c7b6;
+}
 .hero-image img, .project img { width: 100%; height: 100%; object-fit: cover; }
 .hero-note { margin-top: 28px; font-size: .82rem; }
-.albums { background: white; }
-.heading-row { display: flex; justify-content: space-between; gap: 30px; align-items: end; margin-bottom: 38px; }
+
+.albums { background: var(--surface); }
+.heading-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: end;
+  margin-bottom: 38px;
+}
 .heading-row p { max-width: 400px; }
-.projects { display: grid; grid-template-columns: repeat(2,1fr); gap: 35px 24px; }
-.project img { height: 300px; border-radius: 16px; transition: transform .3s; }
+.projects { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 35px 24px; }
+.project { min-width: 0; }
+.project img {
+  height: 300px;
+  border-radius: 16px;
+  transition: transform .3s;
+}
 .project:hover img { transform: scale(1.02); }
 .project h3 { margin-top: 17px; }
 .project p { font-size: .88rem; }
-.about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; align-items: center; }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 70px;
+  align-items: center;
+}
 .initials {
-  display: grid; place-items: center; min-height: 320px;
-  background: #e8e9e1; border-radius: 18px; color: var(--accent);
-  font-size: 7rem; font-weight: 700; letter-spacing: -.08em;
+  display: grid;
+  place-items: center;
+  min-height: 320px;
+  background: #e8c7b6;
+  border-radius: 18px;
+  color: var(--accent);
+  font-size: 7rem;
+  font-weight: 700;
+  letter-spacing: -.08em;
 }
 .about-copy p { margin-top: 20px; }
 .about-copy .btn { margin-top: 25px; }
-.services { background: #eeefe9; }
-.services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 40px; }
-.service {
-  padding: 28px; background: rgba(255,255,255,.6);
-  border: 1px solid #dedfd6; border-radius: 16px;
+
+#contact { background: var(--surface); }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr .8fr;
+  gap: 65px;
 }
-.service small { display: block; color: var(--accent); margin-bottom: 30px; }
-.service p { margin-top: 12px; font-size: .92rem; }
-.contact-grid { display: grid; grid-template-columns: 1fr .8fr; gap: 65px; }
 .contact-copy p { margin-top: 20px; }
-.contact-links { margin-top: 10px; }
+.contact-links { margin-top: 10px; min-width: 0; }
 .contact-link {
-  display: flex; justify-content: space-between; align-items: center;
-  gap: 15px; padding: 19px 0; border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 19px 0;
+  border-bottom: 1px solid var(--border);
 }
 .contact-link:first-child { border-top: 1px solid var(--border); }
 .contact-link small { display: block; color: var(--muted); }
 .contact-link strong { font-size: .95rem; font-weight: 550; overflow-wrap: anywhere; }
 .arrow { color: var(--accent); }
+
 footer { border-top: 1px solid var(--border); padding: 26px 0; }
-.footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 15px; flex-wrap: wrap; }
-footer p, footer a { font-size: .82rem; color: var(--muted); }
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+footer p, footer a { font-size: .82rem; }
+footer p { color: var(--muted); }
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
 @media(max-width:800px) {
   section { padding: 70px 0; }
-  .hero-grid,.about-grid,.contact-grid { grid-template-columns: 1fr; gap: 35px; }
+  .hero-grid, .about-grid, .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
   .hero-image { height: 400px; }
-  .services-grid { grid-template-columns: 1fr; }
   .heading-row { align-items: start; flex-direction: column; }
+  .initials { min-height: 230px; }
 }
 @media(max-width:600px) {
   .menu-toggle { display: block; }
   .nav-links {
-    display: none; position: absolute; top: 72px; left: 0; right: 0;
-    background: var(--bg); padding: 20px; border-bottom: 1px solid var(--border);
-    flex-direction: column; gap: 15px;
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
   }
   .nav-links.open { display: flex; }
   .projects { grid-template-columns: 1fr; }
   .project img { height: 250px; }
   .hero-image { height: 340px; }
+  .hero { padding-top: 65px; }
 }
 @media(prefers-reduced-motion:reduce) {
   html { scroll-behavior: auto; }
@@ -124,13 +221,13 @@ footer p, footer a { font-size: .82rem; color: var(--muted); }
 }
 </style>
 </head>
-<body>
 
+<body>
 <header>
-  <nav class="container">
+  <nav class="container" aria-label="Main navigation">
     <a class="logo" href="#home">Daniel Rose<span>.</span></a>
     <button class="menu-toggle" id="menuToggle" aria-expanded="false"
-      aria-controls="navLinks">Menu ☰</button>
+      aria-controls="navLinks" aria-label="Open navigation menu">Menu ☰</button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#albums">albums</a></li>
       <li><a href="#about">About my music</a></li>
@@ -144,9 +241,8 @@ footer p, footer a { font-size: .82rem; color: var(--muted); }
   <div class="container hero-grid">
     <div>
       <p class="eyebrow">This is Daniel Rose</p>
-      <p class="hero-description">
-        Playing music is coming home to me
-      </p>
+      <h1>Daniel <span>Rose.</span></h1>
+      <p class="hero-description">Playing music is coming home to me</p>
       <div class="actions">
         <a class="btn" href="#albums">Explore my work ↗</a>
         <a class="btn btn-light" href="#about">About my music</a>
@@ -187,10 +283,10 @@ footer p, footer a { font-size: .82rem; color: var(--muted); }
   </div>
 </section>
 
-<section id="About my music">
+<section id="about">
   <div class="container about-grid">
-    <div class="initials">DR.</div>
-    <div class="My music-copy">
+    <div class="initials" aria-label="Daniel Rose initials">DR.</div>
+    <div class="about-copy">
       <p class="eyebrow">Sit back and relax</p>
       <p>I believe music is so much more than how we typically look at it. It not only creates a moment for our busy minds to completely dissolve from the world of thinking into the world of sensing. But it transforms us.</p>
       <p>Bringing us back to when we were young. Our little hand pointing towards that moving thing in the sky. The colors, shapes and lights touching us deeply. Bringing us back to how we lived before all this. Loved ones around the fire making songs to connect with the divine.</p>
@@ -205,13 +301,17 @@ footer p, footer a { font-size: .82rem; color: var(--muted); }
   <div class="container contact-grid">
     <div class="contact-copy">
       <p class="eyebrow">Get in touch</p>
+      <h2>Let's connect.</h2>
+      <p>For music, collaborations and other enquiries, feel free to get in touch.</p>
     </div>
     <div class="contact-links">
       <a class="contact-link" href="mailto:musicbydanielrose@gmail.com">
-        <span><small>Email</small><strong>Send me an email</strong></span><span class="arrow">↗</span>
+        <span><small>Email</small><strong>Send me an email</strong></span>
+        <span class="arrow" aria-hidden="true">↗</span>
       </a>
       <a class="contact-link" href="https://www.youtube.com/@musicbytowardsthesun/" target="_blank" rel="noopener noreferrer">
-        <span><small>Instagram</small><strong>Follow my updates</strong></span><span class="arrow">↗</span>
+        <span><small>YouTube</small><strong>Listen to my music</strong></span>
+        <span class="arrow" aria-hidden="true">↗</span>
       </a>
     </div>
   </div>
@@ -235,6 +335,10 @@ const navLinks = document.getElementById("navLinks");
 menuToggle.addEventListener("click", function () {
   const open = navLinks.classList.toggle("open");
   menuToggle.setAttribute("aria-expanded", String(open));
+  menuToggle.setAttribute(
+    "aria-label",
+    open ? "Close navigation menu" : "Open navigation menu"
+  );
   menuToggle.textContent = open ? "Close ✕" : "Menu ☰";
 });
 
@@ -242,6 +346,7 @@ navLinks.querySelectorAll("a").forEach(function (link) {
   link.addEventListener("click", function () {
     navLinks.classList.remove("open");
     menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Open navigation menu");
     menuToggle.textContent = "Menu ☰";
   });
 });
