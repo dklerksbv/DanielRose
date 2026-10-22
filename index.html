@@ -28,11 +28,17 @@ a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 .container { width: min(1100px, calc(100% - 40px)); margin: auto; }
 section { padding: 90px 0; }
-h1,h2,h3 { line-height: 1.15; letter-spacing: -.04em; font-weight: 550; }
+
+h1, h2, h3 {
+  line-height: 1.15;
+  letter-spacing: -.04em;
+  font-weight: 550;
+}
 h1 { font-size: clamp(3.2rem, 8vw, 6.5rem); }
 h2 { font-size: clamp(2.2rem, 5vw, 3.5rem); }
 h3 { font-size: 1.3rem; }
 p { color: var(--muted); }
+
 .eyebrow {
   color: var(--accent);
   text-transform: uppercase;
@@ -41,6 +47,7 @@ p { color: var(--muted); }
   font-weight: 700;
   margin-bottom: 18px;
 }
+
 header {
   position: sticky;
   top: 0;
@@ -57,7 +64,8 @@ nav {
   gap: 20px;
 }
 .logo { font-size: 1.2rem; font-weight: 750; }
-.logo span, h1 span { color: var(--accent); }
+.logo span { color: var(--accent); }
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -66,6 +74,7 @@ nav {
   font-size: .9rem;
 }
 .nav-links a:hover { color: var(--accent); }
+
 .menu-toggle {
   display: none;
   padding: 8px 12px;
@@ -76,15 +85,39 @@ nav {
   cursor: pointer;
   font: inherit;
 }
+
 .hero { padding: 95px 0; }
 .hero-grid {
   display: grid;
   grid-template-columns: 1.1fr .9fr;
-  gap: 65px;
+  gap: 45px;
   align-items: center;
+  min-width: 0;
 }
-.hero-description { margin-top: 25px; max-width: 480px; font-size: 1.08rem; }
-.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+
+/* Large, dark burgundy artist name */
+.hero h1 {
+  color: var(--accent);
+  font-size: clamp(4.5rem, 10vw, 8rem);
+  line-height: .98;
+  letter-spacing: -.075em;
+  font-weight: 650;
+  overflow-wrap: normal;
+  margin-bottom: 28px;
+}
+.hero h1 span { color: var(--accent); }
+
+.hero-description {
+  margin-top: 0;
+  max-width: 480px;
+  font-size: 1.08rem;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
 .btn {
   display: inline-block;
   padding: 12px 21px;
@@ -95,16 +128,29 @@ nav {
   font-size: .9rem;
   transition: background .2s, transform .2s;
 }
-.btn:hover { background: var(--accent); border-color: var(--accent); transform: translateY(-1px); }
-.btn-light { background: transparent; color: var(--text); border-color: var(--border); }
+.btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+.btn-light {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
 .btn-light:hover { color: var(--bg); }
+
 .hero-image {
   height: 450px;
   border-radius: 180px 180px 20px 20px;
   overflow: hidden;
   background: #e8c7b6;
 }
-.hero-image img, .project img { width: 100%; height: 100%; object-fit: cover; }
+.hero-image img, .project img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .hero-note { margin-top: 28px; font-size: .82rem; }
 
 .Albums { background: var(--surface); }
@@ -116,7 +162,11 @@ nav {
   margin-bottom: 38px;
 }
 .heading-row p { max-width: 400px; }
-.projects { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 35px 24px; }
+.projects {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 35px 24px;
+}
 .project { min-width: 0; }
 .project img {
   height: 300px;
@@ -164,11 +214,21 @@ nav {
   border-bottom: 1px solid var(--border);
 }
 .contact-link:first-child { border-top: 1px solid var(--border); }
-.contact-link small { display: block; color: var(--muted); }
-.contact-link strong { font-size: .95rem; font-weight: 550; overflow-wrap: anywhere; }
+.contact-link small {
+  display: block;
+  color: var(--muted);
+}
+.contact-link strong {
+  font-size: .95rem;
+  font-weight: 550;
+  overflow-wrap: anywhere;
+}
 .arrow { color: var(--accent); }
 
-footer { border-top: 1px solid var(--border); padding: 26px 0; }
+footer {
+  border-top: 1px solid var(--border);
+  padding: 26px 0;
+}
 .footer-inner {
   display: flex;
   justify-content: space-between;
@@ -190,10 +250,15 @@ a:focus-visible, button:focus-visible {
     grid-template-columns: 1fr;
     gap: 35px;
   }
+  .hero h1 { font-size: clamp(4.5rem, 13vw, 7rem); }
   .hero-image { height: 400px; }
-  .heading-row { align-items: start; flex-direction: column; }
+  .heading-row {
+    align-items: start;
+    flex-direction: column;
+  }
   .initials { min-height: 230px; }
 }
+
 @media(max-width:600px) {
   .menu-toggle { display: block; }
   .nav-links {
@@ -214,7 +279,12 @@ a:focus-visible, button:focus-visible {
   .project img { height: 250px; }
   .hero-image { height: 340px; }
   .hero { padding-top: 65px; }
+  .hero h1 {
+    font-size: clamp(3.8rem, 14vw, 5.5rem);
+    letter-spacing: -.07em;
+  }
 }
+
 @media(prefers-reduced-motion:reduce) {
   html { scroll-behavior: auto; }
   *,*::before,*::after { transition: none !important; }
@@ -226,8 +296,9 @@ a:focus-visible, button:focus-visible {
 <header>
   <nav class="container" aria-label="Main navigation">
     <a class="logo" href="#home">Daniel Rose<span>.</span></a>
-    <button class="menu-toggle" id="menuToggle" aria-expanded="false"
-      aria-controls="navLinks" aria-label="Open navigation menu">Menu ☰</button>
+    <button class="menu-toggle" id="menuToggle"
+      aria-expanded="false" aria-controls="navLinks"
+      aria-label="Open navigation menu">Menu ☰</button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#Albums">Albums</a></li>
       <li><a href="#about">My music</a></li>
@@ -239,16 +310,18 @@ a:focus-visible, button:focus-visible {
 <main>
 <section class="hero" id="home">
   <div class="container hero-grid">
-    <div
+    <div>
       <h1>Daniel <span>Rose</span></h1>
-      <p class="eyebrow">Daniel Rose</p>
-      <p class="hero-description">Musician since 2016 with roots in 70's folk-indie & americana</p>
+      <p class="hero-description">
+        Musician since 2016 with roots in 70's folk-indie & americana
+      </p>
       <div class="actions">
         <a class="btn" href="#Albums">Listen ↗</a>
         <a class="btn btn-light" href="#about">My music</a>
       </div>
       <p class="hero-note">Authentic · Experimental · Timeless</p>
     </div>
+
     <div class="hero-image">
       <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1000&q=85"
         alt="Peaceful landscape">
@@ -259,24 +332,44 @@ a:focus-visible, button:focus-visible {
 <section class="Albums" id="Albums">
   <div class="container">
     <div class="heading-row">
-      <div><p class="eyebrow">Selected work</p><h2>Albums</h2></div>
+      <div>
+        <p class="eyebrow">Selected work</p>
+        <h2>Albums</h2>
+      </div>
     </div>
+
     <div class="projects">
       <article class="project">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=85" alt="Minimalist workspace">
-        <h3>Towards the Sun</h3><p>Collection of songs 2016-2026 </p>
+        <img loading="lazy"
+          src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=85"
+          alt="Towards the Sun album artwork">
+        <h3>Towards the Sun</h3>
+        <p>Collection of songs 2016-2026</p>
       </article>
+
       <article class="project">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=900&q=85" alt="Minimalist interior">
-        <h3>Wake up, go to work</h3><p>2026</p>
+        <img loading="lazy"
+          src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=900&q=85"
+          alt="Wake up, go to work album artwork">
+        <h3>Wake up, go to work</h3>
+        <p>2026</p>
       </article>
+
       <article class="project">
-        <img loading="lazy" src="Towards The Sun Desert Walk Final Album Cover compressed.jpg">
-        <h3>Desert Walk</h3><p>2025</p>
+        <img loading="lazy"
+          src="DanielRose/Towards The Sun Desert Walk Final Album Cover compressed.jpg"
+          alt="Desert Walk album cover"
+          onerror="this.onerror=null; this.alt='Desert Walk album cover — image file not found. Check the filename and folder on GitHub.';">
+        <h3>Desert Walk</h3>
+        <p>2025</p>
       </article>
+
       <article class="project">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=900&q=85" alt="Landscape at sunrise">
-        <h3>Let it Burn</h3><p>2023</p>
+        <img loading="lazy"
+          src="DanielRose/Let it Burn.png"
+          alt="Let it Burn album artwork">
+        <h3>Let it Burn</h3>
+        <p>2023</p>
       </article>
     </div>
   </div>
@@ -287,8 +380,11 @@ a:focus-visible, button:focus-visible {
     <div class="initials" aria-label="Daniel Rose initials">DR.</div>
     <div class="about-copy">
       <p>I believe music is so much more than how we typically look at it. It not only creates a moment for our busy minds to completely dissolve from the world of thinking into the world of sensing. But it transforms us.</p>
+
       <p>Bringing us back to when we were young. Our little hand pointing towards that moving thing in the sky. The colors, shapes and lights touching us deeply. Taking us even further back to how we lived before the modern world. Families around the fire making songs to connect with the divine.</p>
+
       <p>Music resonates like nature resonates. Sun is sun. Rain is rain. There's nothing to think or analyze. It's boundless yet simple and clear.</p>
+
       <p>Most of all...</p>
       <p class="eyebrow">music is coming home</p>
       <a class="btn btn-light" href="#contact">Collab ↗</a>
@@ -303,12 +399,16 @@ a:focus-visible, button:focus-visible {
       <h2>Let's connect</h2>
       <p>For press, collaboration and other enquiries, feel free to get in touch</p>
     </div>
+
     <div class="contact-links">
       <a class="contact-link" href="mailto:musicbydanielrose@gmail.com">
         <span><small>Email</small><strong>Send now</strong></span>
         <span class="arrow" aria-hidden="true">↗</span>
       </a>
-      <a class="contact-link" href="https://www.youtube.com/@musicbytowardsthesun/" target="_blank" rel="noopener noreferrer">
+
+      <a class="contact-link"
+        href="https://www.youtube.com/@musicbytowardsthesun/"
+        target="_blank" rel="noopener noreferrer">
         <span><small>YouTube</small><strong>Listen now</strong></span>
         <span class="arrow" aria-hidden="true">↗</span>
       </a>
