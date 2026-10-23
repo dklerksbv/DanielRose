@@ -136,7 +136,7 @@ nav {
   font: inherit;
 }
 
-/* Homepage */
+/* Homepage: aligned left and right columns */
 
 .hero {
   padding: 65px 0 80px;
@@ -146,12 +146,17 @@ nav {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(35px, 6vw, 75px);
-  align-items: center;
+  align-items: stretch;
   min-width: 0;
 }
 
 .hero-copy {
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 0;
+  padding-bottom: 8px;
 }
 
 .hero h1 {
@@ -173,21 +178,24 @@ nav {
   line-height: 1.65;
 }
 
+/* Larger buttons positioned lower in the left column */
+
 .actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 28px;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 45px;
 }
 
 .btn {
   display: inline-block;
-  padding: 15px 27px;
+  padding: 19px 34px;
   border-radius: 50px;
   border: 1px solid var(--text);
   background: var(--text);
   color: var(--bg);
-  font-size: 1rem;
+  font-size: 1.12rem;
   font-weight: 600;
   transition: background .2s, transform .2s;
 }
@@ -208,7 +216,7 @@ nav {
   color: var(--bg);
 }
 
-/* Picture and quote stay together on the right */
+/* Picture and quote on the right */
 
 .hero-visual {
   min-width: 0;
@@ -237,7 +245,7 @@ nav {
   color: var(--muted);
 }
 
-/* Albums: peach background surrounds the smaller grid */
+/* Albums: smaller grid with peach background around it */
 
 .Albums {
   background: var(--bg);
@@ -338,7 +346,7 @@ nav {
   opacity: 1;
 }
 
-/* About */
+/* About section */
 
 #about .about-grid {
   display: grid;
@@ -371,7 +379,7 @@ nav {
   margin-top: 25px;
 }
 
-/* Contact */
+/* Contact section */
 
 #contact {
   background: var(--surface);
@@ -444,6 +452,8 @@ footer p {
   color: var(--muted);
 }
 
+/* Keyboard accessibility */
+
 a:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--accent);
@@ -470,17 +480,23 @@ button:focus-visible {
     font-size: clamp(3rem, 6.5vw, 4.5rem);
   }
 
-  .hero-image {
-    height: 350px;
-  }
-
   .hero-description {
     font-size: 1.05rem;
   }
 
+  .hero-image {
+    height: 350px;
+  }
+
+  .actions {
+    margin-top: auto;
+    padding-top: 35px;
+    gap: 10px;
+  }
+
   .btn {
-    padding: 13px 20px;
-    font-size: .95rem;
+    padding: 15px 22px;
+    font-size: 1rem;
   }
 
   .contact-grid {
@@ -537,6 +553,10 @@ button:focus-visible {
     gap: 28px;
   }
 
+  .hero-copy {
+    padding-bottom: 0;
+  }
+
   .hero h1 {
     font-size: clamp(3.6rem, 13vw, 5.2rem);
     letter-spacing: -.07em;
@@ -547,8 +567,9 @@ button:focus-visible {
   }
 
   .actions {
-    gap: 12px;
     margin-top: 24px;
+    padding-top: 0;
+    gap: 12px;
   }
 
   .btn {
@@ -581,7 +602,8 @@ button:focus-visible {
     grid-template-columns: 1fr;
   }
 
-  /* Keep album titles visible on touchscreens */
+  /* Album titles stay visible on touchscreens */
+
   .project h3 {
     top: auto;
     bottom: 48px;
@@ -639,6 +661,8 @@ button:focus-visible {
   }
 }
 
+/* Respect reduced-motion preferences */
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -651,8 +675,8 @@ button:focus-visible {
   }
 }
 </style>
-
 </head>
+
 <body>
 
 <header>
@@ -838,6 +862,7 @@ button:focus-visible {
 <!-- Footer -->
 <footer>
   <div class="container footer-inner">
+
     <a class="logo" href="#home">Daniel Rose<span>.</span></a>
 
     <p>
@@ -845,6 +870,7 @@ button:focus-visible {
     </p>
 
     <a href="#home">Back to top ↑</a>
+
   </div>
 </footer>
 
@@ -861,6 +887,7 @@ menuToggle.addEventListener("click", function () {
   const open = navLinks.classList.toggle("open");
 
   menuToggle.setAttribute("aria-expanded", String(open));
+
   menuToggle.setAttribute(
     "aria-label",
     open ? "Close navigation menu" : "Open navigation menu"
@@ -873,8 +900,13 @@ menuToggle.addEventListener("click", function () {
 navLinks.querySelectorAll("a").forEach(function (link) {
   link.addEventListener("click", function () {
     navLinks.classList.remove("open");
+
     menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Open navigation menu");
+    menuToggle.setAttribute(
+      "aria-label",
+      "Open navigation menu"
+    );
+
     menuToggle.textContent = "Menu ☰";
   });
 });
