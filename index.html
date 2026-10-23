@@ -212,34 +212,64 @@ nav {
   transition: filter .2s, transform .2s;
 }
 
+/* Three equally sized, see-through homepage buttons */
+.hero-actions .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  min-width: 0;
+  height: 76px;
+  padding: 12px 16px;
+  border: 2px solid;
+  border-radius: 50px;
+  background: transparent;
+  font-size: 1.15rem;
+  font-weight: 650;
+  line-height: 1.2;
+  transition: background .2s, color .2s, transform .2s;
+}
+
 .hero-actions .btn:hover {
-  filter: brightness(1.12);
   transform: translateY(-2px);
 }
 
-/* Top button: darkest burgundy */
-
+/* Listen: darkest burgundy */
 .hero-actions .btn-listen {
   grid-column: 1 / -1;
   justify-self: center;
   width: calc((100% - 14px) / 2);
   height: 76px;
-  background: var(--button-dark);
+  color: var(--button-dark);
   border-color: var(--button-dark);
 }
 
-/* Bottom left: medium burgundy */
+.hero-actions .btn-listen:hover {
+  background: var(--button-dark);
+  color: #fff7f1;
+}
 
+/* Albums: medium burgundy */
 .hero-actions .btn-albums {
-  background: var(--button-medium);
+  color: var(--button-medium);
   border-color: var(--button-medium);
 }
 
-/* Bottom right: lighter burgundy */
+.hero-actions .btn-albums:hover {
+  background: var(--button-medium);
+  color: #fff7f1;
+}
 
+/* Story: lighter burgundy */
 .hero-actions .btn-story {
-  background: var(--button-soft);
+  color: var(--button-soft);
   border-color: var(--button-soft);
+}
+
+.hero-actions .btn-story:hover {
+  background: var(--button-soft);
+  color: #fff7f1;
 }
 
 /* Homepage picture and quote */
@@ -595,12 +625,11 @@ button:focus-visible {
     font-size: 1.1rem;
   }
 
-  /* Three equal buttons side by side on mobile */
-
+  /* Mobile: preserve the three-button row */
+@media (max-width: 600px) {
   .hero-actions {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 7px;
-    width: 100%;
     margin-top: 24px;
     padding-top: 0;
   }
@@ -617,6 +646,7 @@ button:focus-visible {
     line-height: 1.15;
     overflow-wrap: anywhere;
   }
+}
 
   .hero-image {
     height: 360px;
