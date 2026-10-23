@@ -139,25 +139,28 @@ nav {
 /* Homepage */
 
 .hero {
-  padding: 55px 0 75px;
+  padding: 65px 0 80px;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap: 45px;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(35px, 6vw, 75px);
   align-items: center;
+  min-width: 0;
+}
+
+.hero-copy {
   min-width: 0;
 }
 
 .hero h1 {
   color: var(--accent);
-  font-size: clamp(4.5rem, 10vw, 8rem);
+  font-size: clamp(3.6rem, 6.5vw, 6rem);
   line-height: .98;
   letter-spacing: -.075em;
   font-weight: 650;
-  overflow-wrap: normal;
-  margin-bottom: 28px;
+  margin-bottom: 26px;
 }
 
 .hero h1 span {
@@ -165,26 +168,26 @@ nav {
 }
 
 .hero-description {
-  max-width: 540px;
-  font-size: clamp(1.15rem, 2vw, 1.4rem);
-  line-height: 1.6;
+  max-width: 470px;
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  line-height: 1.65;
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 32px;
+  gap: 14px;
+  margin-top: 28px;
 }
 
 .btn {
   display: inline-block;
-  padding: 16px 30px;
+  padding: 15px 27px;
   border-radius: 50px;
   border: 1px solid var(--text);
   background: var(--text);
   color: var(--bg);
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 600;
   transition: background .2s, transform .2s;
 }
@@ -205,9 +208,15 @@ nav {
   color: var(--bg);
 }
 
+/* Picture and quote stay together on the right */
+
+.hero-visual {
+  min-width: 0;
+}
+
 .hero-image {
-  height: 450px;
-  margin-top: -25px;
+  width: 100%;
+  height: 420px;
   border-radius: 180px 180px 20px 20px;
   overflow: hidden;
   background: #e8c7b6;
@@ -220,30 +229,24 @@ nav {
 }
 
 .hero-note {
-  grid-column: 1 / -1;
-  margin-top: -20px;
-  max-width: 650px;
-  font-size: 1rem;
+  margin-top: 20px;
+  max-width: 100%;
+  font-size: clamp(.95rem, 1.25vw, 1.08rem);
   line-height: 1.7;
   font-style: italic;
   color: var(--muted);
 }
 
-/* Albums */
+/* Albums: peach background surrounds the smaller grid */
 
 .Albums {
-  background: var(--surface);
-  padding: 0;
+  background: var(--bg);
+  padding: 65px 0 80px;
 }
 
 .Albums .container {
-  width: 100%;
-  max-width: none;
-}
-
-.Albums .heading-row {
-  padding: 55px 30px 35px;
-  margin: 0;
+  width: 80%;
+  max-width: 1200px;
 }
 
 .heading-row {
@@ -251,6 +254,10 @@ nav {
   justify-content: space-between;
   gap: 30px;
   align-items: end;
+}
+
+.Albums .heading-row {
+  margin-bottom: 30px;
 }
 
 .projects {
@@ -312,7 +319,7 @@ nav {
   transform: translateY(-100%);
   margin: 0;
   padding: 0 10px;
-  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
 }
 
 .project p {
@@ -330,193 +337,9 @@ nav {
 .project:focus-within::after {
   opacity: 1;
 }
-</style>
-</head>
 
-<body>
+/* About */
 
-<header>
-  <nav class="container" aria-label="Main navigation">
-    <a class="logo" href="#home">Daniel Rose<span>.</span></a>
-    <button class="menu-toggle" id="menuToggle"
-      aria-expanded="false" aria-controls="navLinks"
-      aria-label="Open navigation menu">Menu ☰</button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#Albums">Albums</a></li>
-      <li><a href="#about">My music</a></li>
-      <li><a href="#contact">Contact ↗</a></li>
-    </ul>
-  </nav>
-</header>
-
-<main>
-
-<section class="hero" id="home">
-  <div class="container hero-grid">
-
-    <div class="hero-copy">
-      <h1>Daniel <span>Rose</span></h1>
-
-      <p class="hero-description">
-        Musician since 2016 with roots in 70's folk-indie &amp; americana
-      </p>
-
-      <div class="actions">
-        <a class="btn" href="#Albums">Listen ↗</a>
-        <a class="btn btn-light" href="#about">My music</a>
-      </div>
-    </div>
-
-    <div class="hero-image">
-      <img src="images/Filter3.png" alt="Peaceful landscape">
-    </div>
-
-    <p class="hero-note">
-      I don’t feel like this music is entirely mine.
-      I close my eyes, and the music comes to me.
-    </p>
-
-  </div>
-</section>
-
-<section class="Albums" id="Albums">
-  <div class="container">
-
-    <div class="heading-row">
-      <div>
-        <p class="eyebrow">Selected work</p>
-        <h2>Albums</h2>
-      </div>
-    </div>
-
-    <div class="projects">
-
-      <article class="project">
-        <img src="images/collection.jpg"
-          alt="Towards the Sun album artwork" loading="lazy">
-        <h3>Towards the Sun</h3>
-        <p>2016–2026</p>
-      </article>
-
-      <article class="project">
-        <img
-          src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&amp;fit=crop&amp;w=1200&amp;q=90"
-          alt="Wake up, go to work album artwork" loading="lazy">
-        <h3>Wake up, go to work</h3>
-        <p>2026</p>
-      </article>
-
-      <article class="project">
-        <img src="images/Desert Walk.jpg"
-          alt="Desert Walk album cover" loading="lazy">
-        <h3>Desert Walk</h3>
-        <p>2025</p>
-      </article>
-
-      <article class="project">
-        <img src="images/Let it Burn.png"
-          alt="Let it Burn album artwork" loading="lazy">
-        <h3>Let it Burn</h3>
-        <p>2023</p>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<section id="about">
-  <div class="container about-grid">
-
-    <div class="about-image">
-      <img src="images/amsterdamuitzicht.jpg"
-        alt="Amsterdam city view" loading="lazy">
-    </div>
-
-    <div class="about-copy">
-      <p class="eyebrow">Music is everywhere</p>
-
-      <p>
-        I believe music is so much more than we often realize.
-        It allows our busy minds to dissolve, even for a moment,
-        taking us away from a world of thinking and into a world
-        of feeling. And in doing so, it transforms us.
-      </p>
-
-      <p>
-        It brings us back to when we were young. To the moment
-        when we pointed our little hands towards something moving
-        in the sky, captivated by the colors, shapes, and lights
-        that touched us so deeply. It takes us even further back,
-        to a time before the modern world, when families gathered
-        around a fire, making music together to connect with the divine.
-      </p>
-
-      <p>
-        So I think music resonates like nature resonates.
-        Sun is sun. Rain is rain. There's nothing to think about
-        or analyze. It's boundless, yet simple and clear.
-      </p>
-
-      <p>
-        Most of all, music brings us back to where we belong.
-      </p>
-
-      <p class="eyebrow">Music is coming home</p>
-
-      <a class="btn btn-light" href="#contact">Collab ↗</a>
-    </div>
-
-  </div>
-</section>
-
-<section id="contact">
-  <div class="container contact-grid">
-
-    <div class="contact-copy">
-      <p class="eyebrow">Get in touch</p>
-      <h2>Let's connect</h2>
-      <p>
-        For press, collaboration and other enquiries,
-        feel free to get in touch.
-      </p>
-    </div>
-
-    <div class="contact-links">
-
-      <a class="contact-link" href="mailto:musicbydanielrose@gmail.com">
-        <span>
-          <small>Email</small>
-          <strong>Send now</strong>
-        </span>
-        <span class="arrow" aria-hidden="true">↗</span>
-      </a>
-
-      <a class="contact-link"
-        href="https://www.youtube.com/@musicbytowardsthesun/"
-        target="_blank" rel="noopener noreferrer">
-        <span>
-          <small>YouTube</small>
-          <strong>Listen now</strong>
-        </span>
-        <span class="arrow" aria-hidden="true">↗</span>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <div class="container footer-inner">
-    <a class="logo" href="#home">Daniel Rose<span>.</span></a>
-    <p>© <span id="year"></span> Daniel Rose. All rights reserved.</p>
-    <a href="#home">Back to top ↑</a>
-  </div>
-</footer>
-
-<style>
-/* About section */
 #about .about-grid {
   display: grid;
   grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr);
@@ -549,6 +372,7 @@ nav {
 }
 
 /* Contact */
+
 #contact {
   background: var(--surface);
 }
@@ -597,6 +421,7 @@ nav {
 }
 
 /* Footer */
+
 footer {
   border-top: 1px solid var(--border);
   padding: 26px 0;
@@ -619,7 +444,6 @@ footer p {
   color: var(--muted);
 }
 
-/* Keyboard focus */
 a:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--accent);
@@ -627,33 +451,41 @@ button:focus-visible {
 }
 
 /* Tablet */
+
 @media (max-width: 800px) {
   section {
     padding: 70px 0;
   }
 
   .hero {
-    padding: 55px 0 65px;
+    padding: 50px 0 65px;
   }
 
-  .hero-grid,
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
+  .hero-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
   }
 
   .hero h1 {
-    font-size: clamp(4.5rem,13vw,7rem);
+    font-size: clamp(3rem, 6.5vw, 4.5rem);
   }
 
   .hero-image {
-    margin-top: 0;
-    height: 400px;
+    height: 350px;
   }
 
-  .hero-note {
-    grid-column: auto;
-    margin-top: 0;
+  .hero-description {
+    font-size: 1.05rem;
+  }
+
+  .btn {
+    padding: 13px 20px;
+    font-size: .95rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
   }
 
   #about .about-grid {
@@ -665,9 +497,14 @@ button:focus-visible {
     aspect-ratio: 4 / 3;
     max-height: 380px;
   }
+
+  .Albums .container {
+    width: 85%;
+  }
 }
 
-/* Mobile navigation and album covers */
+/* Mobile */
+
 @media (max-width: 600px) {
   .menu-toggle {
     display: block;
@@ -692,39 +529,59 @@ button:focus-visible {
   }
 
   .hero {
-    padding-top: 45px;
+    padding: 45px 0 55px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
   }
 
   .hero h1 {
-    font-size: clamp(3.8rem,14vw,5.5rem);
+    font-size: clamp(3.6rem, 13vw, 5.2rem);
     letter-spacing: -.07em;
   }
 
-  .hero-image {
-    height: 340px;
-  }
-
-  .hero-note {
-    font-size: .95rem;
+  .hero-description {
+    font-size: 1.1rem;
   }
 
   .actions {
     gap: 12px;
+    margin-top: 24px;
   }
 
   .btn {
-    padding: 14px 24px;
+    padding: 14px 23px;
     font-size: 1rem;
+  }
+
+  .hero-image {
+    height: 360px;
+  }
+
+  .hero-note {
+    margin-top: 16px;
+    font-size: 1rem;
+  }
+
+  .Albums {
+    padding: 45px 0 55px;
+  }
+
+  .Albums .container {
+    width: 90%;
+  }
+
+  .Albums .heading-row {
+    margin-bottom: 22px;
   }
 
   .projects {
     grid-template-columns: 1fr;
   }
 
-  .Albums .heading-row {
-    padding: 45px 20px 28px;
-  }
-
+  /* Keep album titles visible on touchscreens */
   .project h3 {
     top: auto;
     bottom: 48px;
@@ -752,7 +609,8 @@ button:focus-visible {
   }
 }
 
-/* Touchscreen album overlays */
+/* Touchscreen devices */
+
 @media (hover: none) and (min-width: 601px) {
   .project h3 {
     top: auto;
@@ -794,12 +652,208 @@ button:focus-visible {
 }
 </style>
 
+</head>
+<body>
+
+<header>
+  <nav class="container" aria-label="Main navigation">
+    <a class="logo" href="#home">Daniel Rose<span>.</span></a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-expanded="false" aria-controls="navLinks"
+      aria-label="Open navigation menu">Menu ☰</button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#Albums">Albums</a></li>
+      <li><a href="#about">My music</a></li>
+      <li><a href="#contact">Contact ↗</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="container hero-grid">
+
+    <div class="hero-copy">
+      <h1>Daniel <span>Rose</span></h1>
+
+      <p class="hero-description">
+        Musician since 2016 with roots in 70's folk-indie &amp; americana
+      </p>
+
+      <div class="actions">
+        <a class="btn" href="#Albums">Listen ↗</a>
+        <a class="btn btn-light" href="#about">My music</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-image">
+        <img src="images/Filter3.png" alt="Peaceful landscape">
+      </div>
+
+      <p class="hero-note">
+        I don’t feel like this music is entirely mine.
+        I close my eyes, and the music comes to me.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Albums -->
+<section class="Albums" id="Albums">
+  <div class="container">
+
+    <div class="heading-row">
+      <div>
+        <p class="eyebrow">Selected work</p>
+        <h2>Albums</h2>
+      </div>
+    </div>
+
+    <div class="projects">
+
+      <article class="project">
+        <img src="images/collection.jpg"
+          alt="Towards the Sun album artwork" loading="lazy">
+        <h3>Towards the Sun</h3>
+        <p>2016–2026</p>
+      </article>
+
+      <article class="project">
+        <img
+          src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&amp;fit=crop&amp;w=1200&amp;q=90"
+          alt="Wake up, go to work album artwork" loading="lazy">
+        <h3>Wake up, go to work</h3>
+        <p>2026</p>
+      </article>
+
+      <article class="project">
+        <img src="images/Desert Walk.jpg"
+          alt="Desert Walk album cover" loading="lazy">
+        <h3>Desert Walk</h3>
+        <p>2025</p>
+      </article>
+
+      <article class="project">
+        <img src="images/Let it Burn.png"
+          alt="Let it Burn album artwork" loading="lazy">
+        <h3>Let it Burn</h3>
+        <p>2023</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="container about-grid">
+
+    <div class="about-image">
+      <img src="images/amsterdamuitzicht.jpg"
+        alt="Amsterdam city view" loading="lazy">
+    </div>
+
+    <div class="about-copy">
+      <p class="eyebrow">Music is everywhere</p>
+
+      <p>
+        I believe music is so much more than we often realize.
+        It allows our busy minds to dissolve, even for a moment,
+        taking us away from a world of thinking and into a world
+        of feeling. And in doing so, it transforms us.
+      </p>
+
+      <p>
+        It brings us back to when we were young. To the moment
+        when we pointed our little hands towards something moving
+        in the sky, captivated by the colors, shapes, and lights
+        that touched us so deeply. It takes us even further back,
+        to a time before the modern world, when families gathered
+        around a fire, making music together to connect with the divine.
+      </p>
+
+      <p>
+        So I think music resonates like nature resonates.
+        Sun is sun. Rain is rain. There's nothing to think about
+        or analyze. It's boundless, yet simple and clear.
+      </p>
+
+      <p>
+        Most of all, music brings us back to where we belong.
+      </p>
+
+      <p class="eyebrow">Music is coming home</p>
+
+      <a class="btn btn-light" href="#contact">Collab ↗</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="container contact-grid">
+
+    <div class="contact-copy">
+      <p class="eyebrow">Get in touch</p>
+      <h2>Let's connect</h2>
+
+      <p>
+        For press, collaboration and other enquiries,
+        feel free to get in touch.
+      </p>
+    </div>
+
+    <div class="contact-links">
+
+      <a class="contact-link" href="mailto:musicbydanielrose@gmail.com">
+        <span>
+          <small>Email</small>
+          <strong>Send now</strong>
+        </span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="contact-link"
+        href="https://www.youtube.com/@musicbytowardsthesun/"
+        target="_blank" rel="noopener noreferrer">
+        <span>
+          <small>YouTube</small>
+          <strong>Listen now</strong>
+        </span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="container footer-inner">
+    <a class="logo" href="#home">Daniel Rose<span>.</span></a>
+
+    <p>
+      © <span id="year"></span> Daniel Rose. All rights reserved.
+    </p>
+
+    <a href="#home">Back to top ↑</a>
+  </div>
+</footer>
+
 <script>
-/* Automatically update the copyright year */
+// Automatically update the copyright year.
 document.getElementById("year").textContent =
   new Date().getFullYear();
 
-/* Mobile navigation */
+// Mobile navigation menu.
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 
@@ -815,7 +869,7 @@ menuToggle.addEventListener("click", function () {
   menuToggle.textContent = open ? "Close ✕" : "Menu ☰";
 });
 
-/* Close navigation after selecting a link */
+// Close the mobile menu after selecting a link.
 navLinks.querySelectorAll("a").forEach(function (link) {
   link.addEventListener("click", function () {
     navLinks.classList.remove("open");
